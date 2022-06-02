@@ -1,0 +1,24 @@
+{
+  "name": "jlperso",
+  "version": "1.0.0",
+  "description": "This package helps maintain this project clean and add also some features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JL",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.9",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-terser": "^2.1.0",
+    "gulp-webp": "^4.0.0",
+    "imagemin-mozjpeg": "^10.0.0"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-include": "^2.4.1"
+  }
+}

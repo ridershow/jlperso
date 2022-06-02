@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "jlperso-eac6c",
+    "preprod": "jlperso-preprod"
+  },
+  "targets": {}
+}

@@ -1,0 +1,1 @@
+jQuery(document).ready((function(e){var d=e(".ds-header").outerHeight();e(".ds-banner,.ds-main-section").css("margin-top",d),e(window).scroll((function(){e(window).scrollTop()>=10?e(".ds-header").addClass("ds-fixed-header"):e(".ds-header").removeClass("ds-fixed-header")})).scroll()}));
