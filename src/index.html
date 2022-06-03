@@ -54,9 +54,9 @@
         <div class="container">
             <section>
                 <h2 class="ds-heading">About Me</h2>
-                <p>Invente, design, prototype, industrialize.<br> That's what I've been doing for the past 15 years. Origninaly shaped as industrial and mechanical designer in the car manufacturing industry, I rapidly took my way off into the extreme sport
-                    industry. From there I started building for a freestyle scooter brand and a media company. Working from 3D design to manufacturing at large scale to building brand identity through photography alongisde team & travel management. These
-                    experiences have enlighten my love for marketing which got me into Growth Marketing. It enables me pursue this willingness on constantly Invente, design, prototype, industrialize. But in the tech world now!</p>
+                <p>Invente, design, prototype, industrialize.<br> Origninaly shaped as industrial and mechanical designer applying it for é years in the car manufacturing industry, I rapidly took my way off into the extreme sport industry. From there I started
+                    building for a freestyle scooter brand and a media company. Working from 3D design to manufacturing at large scale to building brand identity through photography alongisde team & travel management. These experiences have enlighten
+                    my love for marketing which got me into Growth Marketing. It enables me pursue this willingness on constantly Invente, design, prototype, industrialize. But in the tech world now!</p>
                 <div class="ds-button-sec text-center">
                     <a href="/assets/pdf/Resume-Jérémy-Lanfranchi.pdf" class="ds-button">Download Resume</a>
                 </div>
@@ -209,11 +209,31 @@
             </div>
         </div>
     </div>
+
     <!-- Experience -->
 
-    @@include('./component/work.html', { "work_title": "", "work_description": "", "work_url": "", "work_button": "", "work_image_path": "" })
+    <div class="ds-work-section">
+        <div class="container">
+        <h2 class="ds-heading">Latest works</h2>
 
+    @@loop('./component/work.html', [
+    { 
+        "work_title": "Ditched.DK", 
+        "work_description": "Ditched.DK was a media dedicated on documenting the street freestyle scooter scene through the prism of underground culture", 
+        "work_url": "/experiences/gitguardian.html", 
+        "work_button": "Learn more", 
+        "work_image_path": "/assets/images/work-details-image-2.webp" 
+    },
+    {
+        "work_title": "Ditched.DK", 
+        "work_description": "Ditched.DK was a media dedicated on documenting the street freestyle scooter scene through the prism of underground culture", 
+        "work_url": "/experiences/gitguardian.html", 
+        "work_button": "Learn more", 
+        "work_image_path": "/assets/images/work-details-image-2.webp"
+    }])
 
+        </div>
+    </div>
     <div class="text-center">
         <a href="works-setails.html" class="ds-button">Discover more work</a>
     </div>
