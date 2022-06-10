@@ -216,27 +216,30 @@
         <div class="container">
         <h2 class="ds-heading">Latest works</h2>
 
-    @@loop('./component/work.html', [
-    { 
-        "work_title": "Ditched.DK", 
-        "work_description": "Ditched.DK was a media dedicated on documenting the street freestyle scooter scene through the prism of underground culture", 
-        "work_url": "/experiences/gitguardian.html", 
-        "work_button": "Learn more", 
-        "work_image_path": "/assets/images/work-details-image-2.webp" 
-    },
-    {
-        "work_title": "Ditched.DK", 
-        "work_description": "Ditched.DK was a media dedicated on documenting the street freestyle scooter scene through the prism of underground culture", 
-        "work_url": "/experiences/gitguardian.html", 
-        "work_button": "Learn more", 
-        "work_image_path": "/assets/images/work-details-image-2.webp"
-    }])
+        @@loop('./component/work.html', [
+        { 
+            "work_title": "Ditched.DK", 
+            "work_description": "Ditched.DK was a media dedicated on documenting the street freestyle scooter scene through the prism of underground culture", 
+            "work_url": "/experiences/gitguardian.html", 
+            "work_button": "Learn more", 
+            "work_image_path": "/assets/images/work-details-image-2.webp" 
+        },
+        {
+            "work_title": "Ditched.DK", 
+            "work_description": "Ditched.DK was a media dedicated on documenting the street freestyle scooter scene through the prism of underground culture", 
+            "work_url": "/experiences/gitguardian.html", 
+            "work_button": "Learn more", 
+            "work_image_path": "/assets/images/work-details-image-2.webp"
+        }])
 
         </div>
     </div>
+
     <div class="text-center">
         <a href="works-setails.html" class="ds-button">Discover more work</a>
     </div>
+
+    @@include('./component/slider.html')
 
     @@include('./component/footer.html')
 
