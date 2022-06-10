@@ -5,6 +5,8 @@ const imagemin = import('gulp-imagemin');
 const imagewebp = require('gulp-webp'); 
 const terser = require('gulp-terser');
 const fileinclude = require('gulp-file-include');
+const browserSync = require('browser-sync').create();
+
 
 // functions
 
@@ -58,10 +60,20 @@ function watchTask(){
     watch('public/assets/images/*.{jpg,png}', webpImage);
 }
 
+// Static server
+function serve(){
+    browserSync.init({
+        server: {
+            baseDir: "./public"
+        }
+    });
+};
+
 // Default
 exports.default = series(
     include,
     cssmin,
     jsmin,
-    webpImage
+    webpImage,
+    serve
 );
