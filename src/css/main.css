@@ -768,6 +768,11 @@ span.ds-department {
     .ds-work-list section {
         padding-right: 30px;
     }
+    .ds-testimonials-slider .slick-arrow{
+        width: 2.75rem;
+        height: 2.75rem;
+        line-height: 2.75rem;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
