@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
 
-@@include('./component/head.html', { "title": "Jérémy Lanfranchi - Resume & Portfolio", "cssmain": "/assets/css/main.css" })
+@@include('./component/head.html', { 
+    "title": "Jérémy Lanfranchi - Resume & Portfolio", 
+    "cssmain": "/assets/css/main.css" 
+})
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDNPXDK"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    @@include('./component/gtm.html')
 
     @@include('./component/header.html')
 
@@ -112,6 +112,39 @@
         <div class="container">
             <h2 class="ds-heading">Work Experience</h2>
             <div class="row ds-experience-list">
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8 col-xxl-8">
+                        <!-- Experiences List -->
+                          <div class="ds-investment-list-section">
+                              <div class="row">
+                                  @@loop('./component/experience.html', [
+                                  {
+                                      "experience_years": "2021 - Present",
+                                      "company_logo_path": "/assets/images/JL_logo.webp",
+                                      "company_logo_url": "https://www.google.com",
+                                      "alt_company_logo": "Logo Jérémy Lanfranchi",
+                                      "experience_job_title": "Growth Marketing Manager",
+                                      "experience_description": "Independant phtographer for portrait, products, events and video edito"
+                                  },
+                                  {
+                                    "experience_years": "2021 - Present",
+                                    "company_logo_path": "/assets/images/JL_logo.webp",
+                                    "company_logo_url": "https://www.google.com",
+                                    "alt_company_logo": "Logo Jérémy Lanfranchi",
+                                    "experience_job_title": "Growth Marketing Manager",
+                                    "experience_description": "Independant phtographer for portrait, products, events and video edito"
+                                  }
+                                  ])
+                              </div>
+                          </div>
+                        <!-- Experiences List -->
+                    </div>
+                </div>
+
+
+
+
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <section>
                         <span class="ds-year">2021 - Present</span>
@@ -222,24 +255,51 @@
             "work_description": "Ditched.DK was a media dedicated on documenting the street freestyle scooter scene through the prism of underground culture", 
             "work_url": "/experiences/gitguardian.html", 
             "work_button": "Learn more", 
-            "work_image_path": "/assets/images/work-details-image-2.webp" 
+            "work_image_path": "/assets/images/work-1.webp" 
         },
         {
             "work_title": "Ditched.DK", 
             "work_description": "Ditched.DK was a media dedicated on documenting the street freestyle scooter scene through the prism of underground culture", 
             "work_url": "/experiences/gitguardian.html", 
             "work_button": "Learn more", 
-            "work_image_path": "/assets/images/work-details-image-2.webp"
+            "work_image_path": "/assets/images/work-2.webp"
         }])
 
         </div>
     </div>
+    <section>
+        <div class="text-center">
+            <a href="works-setails.html" class="ds-button">Discover more work</a>
+        </div>
+    </section>
 
-    <div class="text-center">
-        <a href="works-setails.html" class="ds-button">Discover more work</a>
+
+
+
+
+
+
+
+<!-- Investment -->
+<div class="ds-investment">
+    <div class="container">
+        
     </div>
+</div>
+<!-- Investment -->
 
-    @@include('./component/slider.html')
+
+
+
+
+
+
+
+
+
+
+
+
 
     @@include('./component/footer.html')
 

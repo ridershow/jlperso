@@ -8,6 +8,7 @@ const fileinclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
 
 
+
 // functions
 
 // include
@@ -25,14 +26,14 @@ function cssmin(){
     return src('src/css/*.css')
     .pipe(minify())
     .pipe(dest('public/assets/css'));
-}
+};
 
 //minify js
 function jsmin(){
     return src('src/js/*.js')
     .pipe(terser())
     .pipe(dest('public/assets/js'));
-}
+};
 
 // images
 function optimizeimg(){
@@ -41,15 +42,15 @@ function optimizeimg(){
         imagemin.mozjpeg({ quality:80, progressive: true}),
         imagemin.optipng({ optimizationLevel:2 })
     ]))
-    .pipe(dest('public/assets/images'));
-}
+    .pipe(dest('public/assets/images/img'));
+};
 
 // webp
 function webpImage(){
     return src('src/images/*.{jpg,png}')
     .pipe(imagewebp())
     .pipe(dest('public/assets/images'))
-}
+};
 
 // WatchTask
 function watchTask(){
@@ -58,7 +59,7 @@ function watchTask(){
     watch('src/js/*.js', jsmin);
     watch('src/images/*.{jpg,png}', optimizeimg);
     watch('public/assets/images/*.{jpg,png}', webpImage);
-}
+};
 
 // Static server
 function serve(){
@@ -74,6 +75,7 @@ exports.default = series(
     include,
     cssmin,
     jsmin,
+    //optimizeimg,
     webpImage,
     serve
 );
