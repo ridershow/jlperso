@@ -587,7 +587,7 @@ span.ds-department {
 .ds-investment section p:last-child{ margin-bottom: 0; }
 
 .ds-investment-loop{ margin-bottom: 60px; }
-.ds-investment-loop figure{ width: 150px; margin-bottom: 30px; }
+.ds-investment-loop figure{ height: 50px; margin-bottom: 30px; }
 .ds-investment-loop h3{ font-size: 18px; line-height: 21px; font-weight: 600; margin-bottom: 15px; }
 .ds-investment-loop p{ color: #707278; font-size: 16px; line-height: 30px; }
 
