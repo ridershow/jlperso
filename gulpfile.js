@@ -47,7 +47,7 @@ function optimizeimg(){
 
 // webp
 function webpImage(){
-    return src('src/images/*.{jpg,png}')
+    return src('src/images/**/*.{jpg,png}')
     .pipe(imagewebp())
     .pipe(dest('public/assets/images'))
 };
