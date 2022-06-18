@@ -7,6 +7,9 @@ const terser = require('gulp-terser');
 const fileinclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
 
+///////////////////////////////
+/// config
+//////////////////////////////
 
 
 // functions
@@ -37,12 +40,9 @@ function jsmin(){
 
 // images
 function optimizeimg(){
-    return src('src/images/.*{jpg,png}')
-    .pipe(imagemin([
-        imagemin.mozjpeg({ quality:80, progressive: true}),
-        imagemin.optipng({ optimizationLevel:2 })
-    ]))
-    .pipe(dest('public/assets/images/img'));
+    return src('src/images/**/.*{jpg,png}')
+    .pipe(imagemin())
+    .pipe(dest('public/assets/images/minified'));
 };
 
 // webp
@@ -57,7 +57,7 @@ function watchTask(){
     watch('src/*.html', include);
     watch('src/css/*.css', cssmin);
     watch('src/js/*.js', jsmin);
-    watch('src/images/*.{jpg,png}', optimizeimg);
+    watch('src/images/**/*.{jpg,png}', optimizeimg);
     watch('public/assets/images/*.{jpg,png}', webpImage);
 };
 
