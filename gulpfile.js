@@ -1,23 +1,23 @@
 // List Dependency
 const {src, dest, watch, series } = require('gulp');
 const minify = require('gulp-clean-css'); 
-const imagemin = import('gulp-imagemin'); 
+const imagemin = require('gulp-imagemin'); 
 const imagewebp = require('gulp-webp'); 
 const terser = require('gulp-terser');
-const fileinclude = require('gulp-file-include');
+const fileInclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
 
 ///////////////////////////////
-/// config
+/// Config
 //////////////////////////////
 
 
-// functions
+// Functions
 
-// include
-function include() {
+// Include component
+function includeComponent() {
     return src(['src/**/*.html', '!src/component/**'])
-      .pipe(fileinclude({
+      .pipe(fileInclude({
         prefix: '@@',
         basepath: '@file'
       }))
@@ -54,11 +54,11 @@ function webpImage(){
 
 // WatchTask
 function watchTask(){
-    watch('src/*.html', include);
+    watch('src/*.html', includeComponent);
     watch('src/css/*.css', cssmin);
     watch('src/js/*.js', jsmin);
     watch('src/images/**/*.{jpg,png}', optimizeimg);
-    watch('public/assets/images/*.{jpg,png}', webpImage);
+    watch('src/images/**/*.{jpg,png}', webpImage);
 };
 
 // Static server
@@ -72,10 +72,11 @@ function serve(){
 
 // Default
 exports.default = series(
-    include,
+    includeComponent,
     cssmin,
     jsmin,
-    //optimizeimg,
+    optimizeimg,
     webpImage,
-    serve
+    serve,
+    watchTask
 );
