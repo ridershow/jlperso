@@ -6,6 +6,7 @@ const imagewebp = require('gulp-webp');
 const terser = require('gulp-terser');
 const fileInclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
+const markdownHTML = require('gulp-markdown');
 
 ///////////////////////////////
 /// Config
@@ -51,6 +52,13 @@ function webpImage(){
     .pipe(imagewebp())
     .pipe(dest('public/assets/images'))
 };
+
+//Markdown to HTML
+function markdownToHTML(){
+    return src('src/md')
+    .pipe(markrdownHTML())
+    .pipe(dest('public/experiences'))
+}
 
 // WatchTask
 function watchTask(){
