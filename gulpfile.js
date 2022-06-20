@@ -6,67 +6,83 @@ const imagewebp = require('gulp-webp');
 const terser = require('gulp-terser');
 const fileInclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
-const markdownHTML = require('gulp-markdown');
 
 ///////////////////////////////
 /// Config
 //////////////////////////////
+
+//Component
+SRC_COMPONENT = ['src/**/*.html', '!src/component/**']
+DEST_COMPONENT = './public'
+
+//Js
+SRC_JS = 'src/js/*.js'
+DEST_JS = 'public/assets/js'
+
+//Css
+SRC_CSS = 'src/css/*.css'
+DEST_CSS = 'public/assets/css'
+
+//images
+SRC_IMAGES = "src/images/**/*.{jpg,png}"
+DEST_IMAGES = 'public/assets/images'
+
 
 
 // Functions
 
 // Include component
 function includeComponent() {
-    return src(['src/**/*.html', '!src/component/**'])
+    return src(SRC_COMPONENT)
       .pipe(fileInclude({
         prefix: '@@',
         basepath: '@file'
       }))
-      .pipe(dest('./public'));
+      .pipe(dest(DEST_COMPONENT));
   };
 
-//minify css
+// Minify css
 function cssmin(){
-    return src('src/css/*.css')
+    return src(SRC_CSS)
     .pipe(minify())
-    .pipe(dest('public/assets/css'));
+    .pipe(dest(DEST_CSS));
 };
 
-//minify js
+// Minify js
 function jsmin(){
-    return src('src/js/*.js')
+    return src(SRC_JS)
     .pipe(terser())
-    .pipe(dest('public/assets/js'));
+    .pipe(dest(DEST_JS));
 };
 
-// images
+// Images
 function optimizeimg(){
-    return src('src/images/**/.*{jpg,png}')
+    return src(SRC_IMAGES)
     .pipe(imagemin())
-    .pipe(dest('public/assets/images/minified'));
+    .pipe(dest(DEST_IMAGES));
 };
 
-// webp
-function webpImage(){
-    return src('src/images/**/*.{jpg,png}')
+// Webp
+function webpimage(){
+    return src(SRC_IMAGES)
     .pipe(imagewebp())
-    .pipe(dest('public/assets/images'))
+    .pipe(dest(DEST_IMAGES));
 };
 
-//Markdown to HTML
-function markdownToHTML(){
-    return src('src/md')
-    .pipe(markrdownHTML())
-    .pipe(dest('public/experiences'))
+// Markdown to HTML
+function markdownToHtml(){
+    return src('src/md/urbanartt-experience.md')
+    .pipe(markdown())
+    .pipe(dest('public/experiences'));
 }
 
 // WatchTask
 function watchTask(){
     watch('src/*.html', includeComponent);
-    watch('src/css/*.css', cssmin);
-    watch('src/js/*.js', jsmin);
-    watch('src/images/**/*.{jpg,png}', optimizeimg);
-    watch('src/images/**/*.{jpg,png}', webpImage);
+    watch(SRC_CSS, cssmin);
+    watch(SRC_JS, jsmin);
+    watch(SRC_IMAGES, optimizeimg);
+    watch(SRC_IMAGES, webpimage);
 };
 
 // Static server
@@ -84,7 +100,8 @@ exports.default = series(
     cssmin,
     jsmin,
     optimizeimg,
-    webpImage,
+    webpimage,
+    //markdownToHtml,
     serve,
     watchTask
 );
