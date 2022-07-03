@@ -1,81 +1,125 @@
 // List Dependency
 const {src, dest, watch, series } = require('gulp');
 const minify = require('gulp-clean-css'); 
-const imagemin = import('gulp-imagemin'); 
+const imagemin = require('gulp-imagemin'); // Imagemin 7.1.0 required (not using ESM)
 const imagewebp = require('gulp-webp'); 
 const terser = require('gulp-terser');
-const fileinclude = require('gulp-file-include');
+const fileInclude = require('gulp-file-include');
+const markdown = require('gulp-markdown') // Markdown 6.0.0 required (not using ESM)
+const sitemap = require('gulp-sitemap')
 const browserSync = require('browser-sync').create();
 
 ///////////////////////////////
-/// config
+/// Config
 //////////////////////////////
 
+//Component
+const SRC_COMPONENT = ['src/**/*.html', '!src/component/**']
+const PUBLIC = './public'
 
-// functions
+//Js
+const SRC_JS = 'src/js/*.js'
+const DEST_JS = 'public/assets/js'
 
-// include
-function include() {
-    return src(['src/**/*.html', '!src/component/**'])
-      .pipe(fileinclude({
+//Css
+const SRC_CSS = 'src/css/*.css'
+const DEST_CSS = 'public/assets/css'
+
+//images
+const SRC_IMAGES = 'src/images/**/*.{jpg,png}'
+const DEST_IMAGES = 'public/assets/images'
+
+//MD files
+const SRC_MD = 'src/md/*.md'
+const DEST_MD = 'public/experiences'
+
+//////////////////////////////
+
+// Functions
+
+// Include component
+function includeComponent() {
+    return src(SRC_COMPONENT)
+      .pipe(fileInclude({
         prefix: '@@',
         basepath: '@file'
       }))
-      .pipe(dest('./public'));
+      .pipe(dest(PUBLIC));
   };
 
-//minify css
+// Minify css
 function cssmin(){
-    return src('src/css/*.css')
+    return src(SRC_CSS)
     .pipe(minify())
-    .pipe(dest('public/assets/css'));
+    .pipe(dest(DEST_CSS));
 };
 
-//minify js
+// Minify js
 function jsmin(){
-    return src('src/js/*.js')
+    return src(SRC_JS)
     .pipe(terser())
-    .pipe(dest('public/assets/js'));
+    .pipe(dest(DEST_JS));
 };
 
-// images
+// Images
 function optimizeimg(){
-    return src('src/images/**/.*{jpg,png}')
+    return src(SRC_IMAGES)
     .pipe(imagemin())
-    .pipe(dest('public/assets/images/minified'));
+    .pipe(dest(DEST_IMAGES));
 };
 
-// webp
-function webpImage(){
-    return src('src/images/**/*.{jpg,png}')
+// Webp
+function webpimage(){
+    return src(SRC_IMAGES)
     .pipe(imagewebp())
-    .pipe(dest('public/assets/images'))
+    .pipe(dest(DEST_IMAGES));
+};
+
+// Markdown to HTML
+function markdownToHtml(){
+    return src(SRC_MD)
+    .pipe(markdown())
+    .pipe(dest(DEST_MD));
+};
+
+// Sitemap
+function generateSitemap(){
+    return src('./public/**/*.html', {
+        read:false
+    })
+    .pipe(sitemap({
+        siteUrl: 'https://jeremylanfranchi.com'
+    })) // Returns sitemap.xml
+    .pipe(dest('./public'));
 };
 
 // WatchTask
 function watchTask(){
-    watch('src/*.html', include);
-    watch('src/css/*.css', cssmin);
-    watch('src/js/*.js', jsmin);
-    watch('src/images/**/*.{jpg,png}', optimizeimg);
-    watch('public/assets/images/*.{jpg,png}', webpImage);
+    watch(SRC_COMPONENT, includeComponent);
+    watch(SRC_CSS, cssmin);
+    watch(SRC_JS, jsmin);
+    watch(SRC_IMAGES, optimizeimg);
+    watch(SRC_IMAGES, webpimage);
 };
 
 // Static server
 function serve(){
     browserSync.init({
         server: {
-            baseDir: "./public"
+            baseDir: PUBLIC
         }
     });
 };
 
 // Default
 exports.default = series(
-    include,
+    includeComponent,
     cssmin,
     jsmin,
-    //optimizeimg,
-    webpImage,
-    serve
+    optimizeimg,
+    webpimage,
+    markdownToHtml,
+    generateSitemap,
+    serve,
+    watchTask
 );
