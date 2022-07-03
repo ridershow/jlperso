@@ -1,10 +1,12 @@
 // List Dependency
 const {src, dest, watch, series } = require('gulp');
 const minify = require('gulp-clean-css'); 
-const imagemin = require('gulp-imagemin'); 
+const imagemin = require('gulp-imagemin'); // Imagemin 7.1.0 required (not using ESM)
 const imagewebp = require('gulp-webp'); 
 const terser = require('gulp-terser');
 const fileInclude = require('gulp-file-include');
+const markdown = require('gulp-markdown') // Markdown 6.0.0 required (not using ESM)
+const sitemap = require('gulp-sitemap')
 const browserSync = require('browser-sync').create();
 
 ///////////////////////////////
@@ -12,22 +14,26 @@ const browserSync = require('browser-sync').create();
 //////////////////////////////
 
 //Component
-SRC_COMPONENT = ['src/**/*.html', '!src/component/**']
-DEST_COMPONENT = './public'
+const SRC_COMPONENT = ['src/**/*.html', '!src/component/**']
+const PUBLIC = './public'
 
 //Js
-SRC_JS = 'src/js/*.js'
-DEST_JS = 'public/assets/js'
+const SRC_JS = 'src/js/*.js'
+const DEST_JS = 'public/assets/js'
 
 //Css
-SRC_CSS = 'src/css/*.css'
-DEST_CSS = 'public/assets/css'
+const SRC_CSS = 'src/css/*.css'
+const DEST_CSS = 'public/assets/css'
 
 //images
-SRC_IMAGES = "src/images/**/*.{jpg,png}"
-DEST_IMAGES = 'public/assets/images'
+const SRC_IMAGES = 'src/images/**/*.{jpg,png}'
+const DEST_IMAGES = 'public/assets/images'
 
+//MD files
+const SRC_MD = 'src/md/*.md'
+const DEST_MD = 'public/experiences'
 
+//////////////////////////////
 
 // Functions
 
@@ -38,7 +44,7 @@ function includeComponent() {
         prefix: '@@',
         basepath: '@file'
       }))
-      .pipe(dest(DEST_COMPONENT));
+      .pipe(dest(PUBLIC));
   };
 
 // Minify css
@@ -71,14 +77,25 @@ function webpimage(){
 
 // Markdown to HTML
 function markdownToHtml(){
-    return src('src/md/urbanartt-experience.md')
+    return src(SRC_MD)
     .pipe(markdown())
-    .pipe(dest('public/experiences'));
-}
+    .pipe(dest(DEST_MD));
+};
+
+// Sitemap
+function generateSitemap(){
+    return src('./public/**/*.html', {
+        read:false
+    })
+    .pipe(sitemap({
+        siteUrl: 'https://jeremylanfranchi.com'
+    })) // Returns sitemap.xml
+    .pipe(dest('./public'));
+};
 
 // WatchTask
 function watchTask(){
-    watch('src/*.html', includeComponent);
+    watch(SRC_COMPONENT, includeComponent);
     watch(SRC_CSS, cssmin);
     watch(SRC_JS, jsmin);
     watch(SRC_IMAGES, optimizeimg);
@@ -89,7 +106,7 @@ function watchTask(){
 function serve(){
     browserSync.init({
         server: {
-            baseDir: "./public"
+            baseDir: PUBLIC
         }
     });
 };
@@ -101,7 +118,8 @@ exports.default = series(
     jsmin,
     optimizeimg,
     webpimage,
-    //markdownToHtml,
+    markdownToHtml,
+    generateSitemap,
     serve,
     watchTask
 );
