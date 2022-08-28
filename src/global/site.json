@@ -7,9 +7,7 @@
     },
     "images": {
         "favicon": "images/favicon.png",
-        "favicon_svg": "images/favicon.svg",
-        "twitter": "/images/meta/twitter.jpg",
-        "og": "/images/meta/og.jpg"
+        "favicon_svg": "images/favicon.svg"
     },
     "social_links": {
         "linkedin": "https://www.linkedin.com/in/jeremylanfranchi",
@@ -22,6 +20,96 @@
         "twitter": "ri-twitter-fill",
         "instagram": "ri-instagram-fill",
         "github": "ri-github-fill"
+    },
+    "work_experiences": {
+        {
+            "experience_years": "September 2021 - Present",
+            "company_logo_path": "/assets/images/company_logo/logo-gitguardian.webp",
+            "company_logo_path_img" : "/assets/images/company_logo/logo-gitguardian.jpg",
+            "company_logo_url": "https://www.gitguardian.com",
+            "alt_company_logo": "Logo GitGuardian",
+            "experience_job_title": "Growth Marketing Manager",
+            "experience_description": "GitGuardian is a global cybersecurity startup focusing on code security solutions for the DevOps generation. A leader in the market of secrets detection and remediation, its solutions are already used by hundred thousands developers in all industries.",
+            "experience_page_path": "index.html"
+        },
+        {
+        "experience_years": "2010 - Present",
+        "company_logo_path": "/assets/images/company_logo/logo-jeremy-lanfranchi.webp",
+        "company_logo_path_img" : "/assets/images/company_logo/logo-jeremy-lanfranchi.jpg",
+        "company_logo_url": "https://www.jeremylanfranchi.com",
+        "alt_company_logo": "Logo Jérémy Lanfranchi",
+        "experience_job_title": "Photographer",
+        "experience_description": "Photograph specialized in extreme sport photography, portrait and product. Also able to shoot and edit video. Recently started to make underwater photography through my love of scuba diving. Always in love of telling stories through beautifull images.",
+        "experience_page_path": "index.html"
+        },
+        {
+        "experience_years": "September 2019 - September 2021",
+        "company_logo_path": "/assets/images/company_logo/logo-beng.webp",
+        "company_logo_path_img" : "/assets/images/company_logo/logo-beng.png",
+        "company_logo_url": "https://www.beng.agency",
+        "alt_company_logo": "Logo BenG! Agency",
+        "experience_job_title": "Independant Growth Marketing Consultant",
+        "experience_description": "BenG! is a growth marketing agency helping B2C & B2B businesses. One vertical is building e-commerce websites with Shopify (official partner). Then scale the business using a tailored inbound strategy, digital ads and reaching new B2B customers using a fullstack outbound strategy.",
+        "experience_page_path": "index.html"
+        },
+        {
+        "experience_years": "April 2019 - September 2019",
+        "company_logo_path": "/assets/images/company_logo/logo-studapart.webp",
+        "company_logo_path_img" : "/assets/images/company_logo/logo-studapart.png",
+        "company_logo_url": "https://www.studapart.com",
+        "alt_company_logo": "Logo Studapart",
+        "experience_job_title": "Growth Marketing Manager",
+        "experience_description": "French startup based in Paris helping students find an accomodation near their school by providing an online housing platform for each school and open to overseas student looking for a mid to long term rent in France.",
+        "experience_page_path": "index.html"
+        },
+        {
+        "experience_years": "November 2018 - April 2019",
+        "company_logo_path": "/assets/images/company_logo/logo-phenix.webp",
+        "company_logo_path_img" : "/assets/images/company_logo/logo-phenix.png",
+        "company_logo_url": "https://www.wearephenix.com",
+        "alt_company_logo": "Logo Phenix, l'app anti-gaspi",
+        "experience_job_title": "Growth Marketing Manager",
+        "experience_description": "Phenix is an anti-waste app for Andoid & Iphone on which food stores can resell short expiry dates items to avoid throwing them away.",
+        "experience_page_path": "index.html"
+        },
+        {
+        "experience_years": "2013 - 2016",
+        "company_logo_path": "/assets/images/company_logo/logo-ditched.webp",
+        "company_logo_path_img" : "/assets/images/company_logo/logo-ditched.png",
+        "company_logo_url": "https://ditched.dk",
+        "alt_company_logo": "Logo Ditched.Dk",
+        "experience_job_title": "Founder",
+        "experience_description": "News website supporting the growth of the freestyle scooter culture through the eyes of urban art culture. Started as a website, to quickly evolve as a multi channel media by being availble as a mobile app (IOS/Android) and a free bi-monthly magazine.",
+        "experience_page_path": "index.html"
+        },
+        {
+        "experience_years": "2012 - 2016",
+        "company_logo_path": "/assets/images/company_logo/logo-ua.webp",
+        "company_logo_path_img" : "/assets/images/company_logo/logo-ua.png",
+        "company_logo_url": "https://www.urbanartt.com",
+        "alt_company_logo": "Logo UrbanArtt",
+        "experience_job_title": "Associate, Team Manager & Photographer",
+        "experience_description": "Freestyle scooter brand focussed on the 'street' culture. Every UrbanArtt parts were designed in France. Distributed worldwide. Highly supporting the community by sponsoring some of the top athletes in the world.",
+        "experience_page_path": "index.html"
+        },
+        {
+        "experience_years": "2012 - 2012",
+        "company_logo_path": "/assets/images/company_logo/logo-fsn.webp",
+        "company_logo_path_img" : "/assets/images/company_logo/logo-fsn.jpg",
+        "company_logo_url": "https://www.urbanartt.com",
+        "alt_company_logo": "Logo Freestyle Scooter News",
+        "experience_job_title": "Webmaster & Community manager",
+        "experience_description": "Freestyle Scooter News was the french/english reference blog to be updated on the news of the freestyle scooter world.",
+        "experience_page_path": "index.html"
+        },
+        {
+        "experience_years": "2010 - 2012",
+        "company_logo_path": "/assets/images/company_logo/logo-french-toast.webp",
+        "company_logo_path_img" : "/assets/images/company_logo/logo-french-toast.jpg",
+        "company_logo_url": "https://issuu.com/frenchtoast8",
+        "alt_company_logo": "Logo French Toast Magazine",
+        "experience_job_title": "Director of photography & writer",
+        "experience_description": "The very first freestyle scooter magazine in the world. Two version were printed, one in English, the other in our mother tongue, French. Featuring riders and photographer from around the world."
+        }
     }
-
 }
