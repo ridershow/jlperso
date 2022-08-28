@@ -1,0 +1,27 @@
+{
+    "name": "Jérémy Lanfranchi",
+    "url": "https://jeremylanfranchi.com",
+    "author": {
+        "name": "Jérémy Lanfranchi",
+        "handle": "@jeditch"
+    },
+    "images": {
+        "favicon": "images/favicon.png",
+        "favicon_svg": "images/favicon.svg",
+        "twitter": "/images/meta/twitter.jpg",
+        "og": "/images/meta/og.jpg"
+    },
+    "social_links": {
+        "linkedin": "https://www.linkedin.com/in/jeremylanfranchi",
+        "twitter": "https://twitter.com/jeditch",
+        "instagram": "https://instagram.com/ridershow",
+        "github": "https://github.com/ridershow"
+    },
+    "social_icons": {
+        "linkedin": "ri-linkedin-fill",
+        "twitter": "ri-twitter-fill",
+        "instagram": "ri-instagram-fill",
+        "github": "ri-github-fill"
+    }
+
+}

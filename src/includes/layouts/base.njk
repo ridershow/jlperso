@@ -3,40 +3,10 @@
 
 {% include "components/head.njk" %}
 
-<!-- header -->
-<header class="ds-header" id="site-header">
-    <div class="container">
-        <div class="ds-header-inner">
-          <!-- logo -->
-          <a href="/index.html" class="ds-logo">
-            <span>  
-              <picture><source 
-              srcset="/assets/images/JL_logo.webp"
-              type="image/webp">
-              <img src="/assets/images/JL_logo.jpg"
-              alt="Logo Jérémy Lanfranchi"
-              loading="lazy">
-              </picture>
-            </span>Jérémy Lanfranchi
-          </a>
-          <!-- logo -->
-          <!-- social -->
-          <ul class="ds-social">
-            <li><a href="https://www.linkedin.com/in/jeremylanfranchi" target="_blank"><i class="ri-linkedin-fill"></i></a></li>
-            <li><a href="https://twitter.com/jeditch" target="_blank"><i class="ri-twitter-fill"></i></a></li>
-            <li><a href="https://instagram.com/ridershow" target="_blank"><i class="ri-instagram-fill"></i></a></li>
-            <li><a href="https://github.com/ridershow" target="_blank"><i class="ri-github-fill"></i></a></li>
-          </ul>
-          <!-- social -->
-        </div>
-    </div>
-</header>
-<!-- header -->
-
 <body>
     {% include "components/gtm_body.html" %}
 
-    {% include "components/header.html" %}
+    {% include "components/header_home.njk" %}
 
     <!-- banner -->
     <div class="ds-banner">
