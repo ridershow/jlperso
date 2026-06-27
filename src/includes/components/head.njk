@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
     <head>
-    <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +9,6 @@
 
         <!-- Remixicon Icon -->
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-        <!-- Remixicon Icon -->
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -27,11 +22,10 @@
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','{{ env.tracking.gtag }}');</script>
+        })(window,document,'script','dataLayer','GTM-PDNPXDK');</script>
         <!-- End Google Tag Manager -->
 
         <link rel="icon" href="/assets/images/favicon.ico" />
         <title>{{ title }}</title>
-        <meta name="{{ meta_name }}" description="{{meta_description}}">
+        <meta name="description" content="{{ meta_description }}">
     </head>
-};
