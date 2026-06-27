@@ -1,0 +1,25 @@
+<!-- header -->
+<header class="ds-header" id="site-header">
+    <div class="container">
+        <div class="ds-header-inner">
+            <!-- logo -->
+            <a href="/" class="ds-logo">
+                <span>
+                    <picture>
+                        <img src="/assets/images/JL_logo.jpg" alt="Logo Jérémy Lanfranchi" loading="lazy">
+                    </picture>
+                </span>Jérémy Lanfranchi
+            </a>
+            <!-- logo -->
+
+            <!-- social -->
+            <ul class="ds-social">
+                {% for platform, url in site.social_links %}
+                    <li><a href="{{ url }}" target="_blank"><i class="{{ site.social_icons[platform] }}"></i></a></li>
+                {% endfor %}
+            </ul>
+            <!-- social -->
+        </div>
+    </div>
+</header>
+<!-- header -->

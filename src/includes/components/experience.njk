@@ -1,0 +1,12 @@
+<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 ds-investment-loop">
+    <div class="ds-investment-loop-content">
+        <a href="{{ exp.company_logo_url }}" target="_blank">
+            <picture>
+                <img src="{{ exp.company_logo_path }}" alt="{{ exp.alt_company_logo }}" loading="lazy">
+            </picture>
+        </a>
+        <span class="ds-year">{{ exp.experience_years }}</span>
+        <span class="ds-department">{{ exp.experience_job_title }}</span>
+        <p>{{ exp.experience_description }}</p>
+    </div>
+</div>

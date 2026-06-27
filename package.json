@@ -1,28 +1,36 @@
 {
   "name": "jlperso",
-  "version": "2.0.0",
-  "type": "module",
-  "description": "Personal portfolio — built with Vite",
+  "version": "1.0.0",
+  "description": "This package helps maintain this project clean and add also some features",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy:firebase": "npm run build && firebase deploy",
-    "deploy:ftp": "npm run build && node --env-file=.env scripts/ftp-deploy.js"
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JL",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^6.0.0"
+    "@11ty/eleventy": "^1.0.1",
+    "browser-sync": "^2.27.10",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-markdown": "^6.0.0",
+    "gulp-sitemap": "^8.0.0",
+    "gulp-terser": "^2.1.0",
+    "gulp-webp": "^4.0.0",
+    "imagemin-mozjpeg": "^0.1.2"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "ftp-deploy": "^2.4.6"
+    "gulp-include": "^2.4.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ridershow/jlperso.git"
   },
+  "keywords": [],
   "bugs": {
     "url": "https://github.com/ridershow/jlperso/issues"
   },
