@@ -4,6 +4,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - 'css/**'
+      - 'js/**'
+      - 'images/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.eleventy.js'
+      - 'firebase.json'
   workflow_dispatch:
 
 jobs:
@@ -30,4 +39,3 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JLPERSO_EAC6C }}
           projectId: jlperso-eac6c
           channelId: live
-          force: true
